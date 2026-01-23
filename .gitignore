@@ -1,0 +1,41 @@
+# Python bytecode and cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+ENV/
+auth_token/
+
+# Environment variables / Secrets (CRITICAL)
+.env
+.flaskenv
+
+# Database files
+*.db
+*.sqlite
+*.sql
+
+# Distribution / Build files
+dist/
+build/
+*.egg-info/
+
+# Unit test / Coverage reports
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
