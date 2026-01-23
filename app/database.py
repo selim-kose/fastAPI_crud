@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, DeclarativeBase, Session
 from typing import Generator
 
 # SQLAlchemy database URL for MySQL
-DATABASE_URL = "mysql+pymysql://user:password@localhost:3306/users"
+DATABASE_URL = "mysql+pymysql://user:password@host.docker.internal:3306/users"
 
 # Create the SQLAlchemy engine
 engine = create_engine(

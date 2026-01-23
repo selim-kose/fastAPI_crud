@@ -8,6 +8,12 @@ from app.database import engine, get_db
 
 router = APIRouter(prefix="/users", tags=["users"])
 
+# Create the database tables on startup
+# on_event is deprecated in APIRouter, find alternative in FastAPI 2.x
+@router.on_event("startup")
+def startup():
+    models.Base.metadata.create_all(bind=engine)
+
 @router.post("/", response_model=schemas.UserResponse)
 def create_user(
     user: schemas.UserCreate,
