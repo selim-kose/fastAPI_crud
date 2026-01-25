@@ -1,9 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, DeclarativeBase, Session
 from typing import Generator
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 # SQLAlchemy database URL for MySQL
-DATABASE_URL = "mysql+pymysql://user:password@host.docker.internal:3306/users"
+DATABASE_URL = os.getenv("MYSQL_CONNECTION_STRING")
 
 # Create the SQLAlchemy engine
 engine = create_engine(
@@ -19,7 +24,7 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-# Dependency to get DB session 
+#FastAPI Dependency injection mechanism, to get a DB session 
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
