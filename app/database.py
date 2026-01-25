@@ -19,7 +19,7 @@ SessionLocal = sessionmaker(
     bind=engine
 )
 
-# Dependency to get DB session 
+#FastAPI Dependency injection mechanism, to get a DB session 
 def get_db() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
