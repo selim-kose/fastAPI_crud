@@ -14,6 +14,13 @@ router = APIRouter(prefix="/users", tags=["users"])
 def startup():
     models.Base.metadata.create_all(bind=engine)
 
+
+# Healthy check endpoint that returns uptime status
+@router.get("/health")
+def health_check():
+    return {"status": "Service is up and running"}
+
+
 @router.post("/", response_model=schemas.UserResponse)
 def create_user(
     user: schemas.UserCreate,
