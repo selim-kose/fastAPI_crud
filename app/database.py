@@ -8,7 +8,8 @@ import os
 load_dotenv()
 
 # SQLAlchemy database URL for MySQL
-DATABASE_URL = os.getenv("MYSQL_CONNECTION_STRING")
+#DATABASE_URL = os.getenv("MYSQL_CONNECTION_STRING")
+DATABASE_URL = "mysql+pymysql://user:password@mysql:3306/users"
 
 # Create the SQLAlchemy engine
 engine = create_engine(
