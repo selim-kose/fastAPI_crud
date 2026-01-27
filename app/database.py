@@ -7,9 +7,15 @@ import os
 # Load environment variables from .env file
 load_dotenv()
 
+DB_USERNAME=os.getenv("DB_USERNAME", "user")
+DB_PASSWORD=os.getenv("DB_PASSWORD", "password")
+DB_HOST=os.getenv("DB_HOST", "localhost")
+DB_PORT=os.getenv("DB_PORT", "3306")
+DB_NAME=os.getenv("DB_NAME", "users")
+
 # SQLAlchemy database URL for MySQL
-#DATABASE_URL = os.getenv("MYSQL_CONNECTION_STRING")
-DATABASE_URL = "mysql+pymysql://user:password@mysql:3306/users"
+DATABASE_URL = f"mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+#DATABASE_URL = "mysql+pymysql://user:password@mysql:3306/users"
 
 # Create the SQLAlchemy engine
 engine = create_engine(
