@@ -10,7 +10,7 @@ git clone https://github.com/selim-kose/fastAPI_crud.git
 
 change values to match your DB credentials and connection details
 
-```yml
+```commandline
 DB_USERNAME=username
 DB_PASSWORD=password
 DB_HOST=host.docker.internal
